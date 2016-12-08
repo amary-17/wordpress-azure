@@ -6,7 +6,7 @@ $pwd = "password";
 $db = "registration";
 try{
     $conn = new PDO
-( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+( "sqlsrv:server = tcp:registration123.database.windows.net,1433; Database = registration", "amary-17", "{your_password_here}");
     $conn->setAttribute
 ( PDO::ATTR_ERRMODE, 
 PDO::ERRMODE_EXCEPTION );
@@ -18,7 +18,8 @@ PDO::ERRMODE_EXCEPTION );
     date DATE)";
     $conn->query($sql);
 }
-catch(Exception $e){
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
     die(print_r($e));
 }
 echo "<h3>Table created.</h3>";
