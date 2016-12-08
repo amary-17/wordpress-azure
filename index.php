@@ -36,7 +36,6 @@ name="email" id="email"/></br>
 name="submit" value="Submit" />
 </form>
 <?php
-
 // DB connection info
 $host = "localhost\sqlexpress";
 $user = "user name";
@@ -46,12 +45,13 @@ $db = "registration";
 try {
     $conn = new PDO
 ( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-    $conn = new PDO("sqlsrv:server = tcp:registration123.database.windows.net,1433; Database = registration", "amary-17", "{your_password_here}");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $conn->setAttribute
+( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
 catch(Exception $e){
     die(var_dump($e));
-} 
+}
+
 ?>
 </body>
 </html>
