@@ -8,8 +8,8 @@ try{
     $conn = new PDO
 ( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
     $conn->setAttribute
-( PDO("sqlsrv:server = tcp:registration123.database.windows.net,1433; Database = registration", "amary-17", "{your_password_here}");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+( PDO::ATTR_ERRMODE, 
+PDO::ERRMODE_EXCEPTION );
     $sql = "CREATE TABLE registration_tbl(
     id INT NOT NULL IDENTITY(1,1) 
     PRIMARY KEY(id),
