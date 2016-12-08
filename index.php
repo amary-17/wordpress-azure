@@ -44,12 +44,13 @@ $db = "registration";
 // Connect to database.
 try {
     $conn = new PDO
-( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
+( $conn = new PDO("sqlsrv:server = tcp:registration123.database.windows.net,1433; Database = registration", "amary-17", "{your_password_here}");
     $conn->setAttribute
 ( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
-catch(Exception $e){
-    die(var_dump($e));
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
 }
 
 ?>
